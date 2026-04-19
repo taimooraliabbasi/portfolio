@@ -213,6 +213,56 @@ progress.each(function () {
 });
 
 /**
+ * Home — circular skill rings (SVG)
+ */
+(function initHomeSkillRings() {
+	var $root = $('[data-skill-rings-root]');
+	if (!$root.length) {
+		return;
+	}
+	var $rings = $root.find('.skill-ring');
+	$rings.each(function () {
+		var $prog = $(this).find('.skill-ring__progress');
+		var r = parseFloat($prog.attr('r'), 10);
+		if (isNaN(r)) {
+			r = 40;
+		}
+		var c = 2 * Math.PI * r;
+		$prog.css({
+			strokeDasharray: c,
+			strokeDashoffset: c
+		});
+	});
+	$root.waypoint(function () {
+		$rings.each(function (i) {
+			var $ring = $(this);
+			var $prog = $ring.find('.skill-ring__progress');
+			var $val = $ring.find('.skill-ring__value');
+			var r = parseFloat($prog.attr('r'), 10) || 40;
+			var c = 2 * Math.PI * r;
+			var target = parseInt($ring.data('percent'), 10) || 0;
+			var stagger = i * 70;
+			setTimeout(function () {
+				$prog.css({
+					transition: 'stroke-dashoffset 1.15s cubic-bezier(0.4, 0, 0.2, 1)',
+					strokeDashoffset: c * (1 - target / 100)
+				});
+				$val.prop('Counter', 0).animate({ Counter: target }, {
+					duration: 1150,
+					easing: 'swing',
+					step: function step(now) {
+						$(this).text(Math.ceil(now) + '%');
+					}
+				});
+			}, stagger);
+		});
+		this.destroy();
+	}, {
+		offset: '85%'
+	});
+})();
+
+/**
    * Typing effect
    */
 $('.typing__module').each(function (index) {
