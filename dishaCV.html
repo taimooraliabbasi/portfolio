@@ -14,6 +14,9 @@
 		<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700|Open+Sans:400,700">
 		<link rel="stylesheet" type="text/css" id="app-stylesheet" href="assets/css/main.css">
 		<style>
+			:root {
+				--print-scale: 1;
+			}
 			.cv-page {
 				background: #ececec;
 				font-family: "Open Sans", Arial, sans-serif;
@@ -31,6 +34,29 @@
 				margin: 0 auto;
 				background: #fff;
 				box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+			}
+			.cv-export-wrap {
+				max-width: 1060px;
+				margin: 0 auto 14px;
+				text-align: right;
+			}
+			.cv-export-btn {
+				display: inline-block;
+				background: #1f3f95;
+				color: #fff;
+				border: 0;
+				padding: 11px 18px;
+				border-radius: 8px;
+				font-size: 13px;
+				font-weight: 700;
+				letter-spacing: 0.7px;
+				text-transform: uppercase;
+				cursor: pointer;
+				font-family: "Montserrat", sans-serif;
+				transition: background 0.2s ease;
+			}
+			.cv-export-btn:hover {
+				background: #173172;
 			}
 			.cv-top {
 				display: grid;
@@ -70,6 +96,18 @@
 				padding: 28px 30px;
 				border-right: 1px solid #e4e4e4;
 				background: #fcfcfc;
+			}
+			.cv-photo-wrap {
+				margin-bottom: 18px;
+				text-align: center;
+			}
+			.cv-photo {
+				width: 120px;
+				height: 120px;
+				border-radius: 50%;
+				object-fit: cover;
+				border: 4px solid #f2c80f;
+				display: inline-block;
 			}
 			.cv-main {
 				padding: 28px 34px;
@@ -147,8 +185,35 @@
 				}
 			}
 			@media print {
+				@page {
+					size: A4;
+					margin: 10mm;
+				}
 				body.cv-page {
 					background: #fff !important;
+					-webkit-print-color-adjust: exact;
+					print-color-adjust: exact;
+				}
+				.cv-export-wrap {
+					display: none !important;
+				}
+				.wa-widget,
+				.wa-widget * {
+					display: none !important;
+					visibility: hidden !important;
+				}
+				.cv-photo-wrap {
+					display: block !important;
+					break-inside: avoid;
+					page-break-inside: avoid;
+				}
+				.cv-photo {
+					display: inline-block !important;
+					width: 110px !important;
+					height: 110px !important;
+					border: 3px solid #f2c80f !important;
+					-webkit-print-color-adjust: exact;
+					print-color-adjust: exact;
 				}
 				.cv-paper {
 					box-shadow: none !important;
@@ -156,6 +221,22 @@
 				}
 				.cv-page .wil-content {
 					padding: 0 !important;
+				}
+				.cv-top,
+				.cv-body {
+					display: grid !important;
+					grid-template-columns: 32% 68% !important;
+				}
+				.cv-main .cv-block,
+				.cv-side .cv-block {
+					break-inside: auto;
+					page-break-inside: auto;
+				}
+				.cv-role,
+				.cv-company,
+				.cv-date {
+					break-inside: avoid;
+					page-break-inside: avoid;
 				}
 			}
 		</style>
@@ -183,6 +264,9 @@
 			</header>
 
 			<div class="wil-content">
+				<div class="cv-export-wrap">
+					<a class="cv-export-btn" id="export-pdf-btn" href="javascript:void(0)" onclick="exportLongPdf(); return false;" role="button">Export PDF</a>
+				</div>
 				<div class="cv-paper">
 					<div class="cv-top">
 						<div class="cv-tag">L&amp;D</div>
@@ -193,6 +277,9 @@
 					</div>
 					<div class="cv-body">
 						<aside class="cv-side">
+							<div class="cv-photo-wrap">
+								<img class="cv-photo" src="assets/img/disha-profile.jpg" alt="Disha Tuniki profile photo">
+							</div>
 							<div class="cv-block">
 								<h3 class="cv-section-title">Contact</h3>
 								<p><strong>Phone:</strong> <a href="tel:+971501571781">+971 50 157 1781</a></p>
@@ -400,5 +487,50 @@
 		<script type="text/javascript" src="assets/vendors/menu/menu.js"></script>
 		<script type="text/javascript" src="assets/vendors/typed/typed.min.js"></script>
 		<script type="text/javascript" src="assets/js/main.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+		<script type="text/javascript">
+			function exportLongPdf() {
+				var cvPaper = document.querySelector('.cv-paper');
+				var exportBtn = document.getElementById('export-pdf-btn');
+				if (!cvPaper || !window.html2canvas || !window.jspdf) {
+					window.print();
+					return;
+				}
+
+				exportBtn.setAttribute('aria-disabled', 'true');
+				exportBtn.textContent = 'Preparing...';
+				document.body.classList.add('cv-exporting');
+
+				var fontsReady = document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve();
+				fontsReady.then(function () {
+					return html2canvas(cvPaper, {
+						scale: 2,
+						useCORS: true,
+						backgroundColor: '#ffffff',
+						scrollX: 0,
+						scrollY: -window.scrollY
+					});
+				}).then(function (canvas) {
+					var imgData = canvas.toDataURL('image/png');
+					var jsPDF = window.jspdf.jsPDF;
+					var pdfWidth = 210;
+					var pdfHeight = canvas.height * pdfWidth / canvas.width;
+					var pdf = new jsPDF({
+						orientation: 'portrait',
+						unit: 'mm',
+						format: [pdfWidth, pdfHeight]
+					});
+					pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+					pdf.save('Disha-Tuniki-CV-Long.pdf');
+				}).catch(function () {
+					window.print();
+				}).finally(function () {
+					document.body.classList.remove('cv-exporting');
+					exportBtn.removeAttribute('aria-disabled');
+					exportBtn.textContent = 'Export PDF';
+				});
+			}
+		</script>
 	</body>
 </html>
