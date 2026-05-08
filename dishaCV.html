@@ -13,8 +13,154 @@
 		<link rel="stylesheet" type="text/css" href="assets/vendors/swiper/swiper.css">
 		<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700|Open+Sans:400,700">
 		<link rel="stylesheet" type="text/css" id="app-stylesheet" href="assets/css/main.css">
+		<style>
+			.cv-page {
+				background: #ececec;
+				font-family: "Open Sans", Arial, sans-serif;
+				color: #2a2a2a;
+			}
+			.cv-page .header,
+			.cv-page .footer {
+				display: none;
+			}
+			.cv-page .wil-content {
+				padding: 36px 0;
+			}
+			.cv-paper {
+				max-width: 1060px;
+				margin: 0 auto;
+				background: #fff;
+				box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+			}
+			.cv-top {
+				display: grid;
+				grid-template-columns: 290px 1fr;
+			}
+			.cv-tag {
+				background: #f2c80f;
+				padding: 28px 30px;
+				font-weight: 700;
+				letter-spacing: 2px;
+				font-size: 28px;
+				color: #252525;
+			}
+			.cv-name {
+				padding: 28px 34px;
+				border-left: 1px solid #e4e4e4;
+			}
+			.cv-name h1 {
+				margin: 0;
+				font-size: 38px;
+				letter-spacing: 1.2px;
+				font-family: "Montserrat", sans-serif;
+				text-transform: uppercase;
+			}
+			.cv-name p {
+				margin: 6px 0 0;
+				font-size: 14px;
+				letter-spacing: 2px;
+				color: #666;
+				text-transform: uppercase;
+			}
+			.cv-body {
+				display: grid;
+				grid-template-columns: 290px 1fr;
+			}
+			.cv-side {
+				padding: 28px 30px;
+				border-right: 1px solid #e4e4e4;
+				background: #fcfcfc;
+			}
+			.cv-main {
+				padding: 28px 34px;
+			}
+			.cv-section-title {
+				display: inline-block;
+				font-size: 13px;
+				font-weight: 700;
+				letter-spacing: 2px;
+				text-transform: uppercase;
+				border-bottom: 3px solid #f2c80f;
+				padding-bottom: 4px;
+				margin: 0 0 12px;
+				font-family: "Montserrat", sans-serif;
+			}
+			.cv-block {
+				margin-bottom: 24px;
+			}
+			.cv-side p,
+			.cv-side li,
+			.cv-main p,
+			.cv-main li {
+				font-size: 13.5px;
+				line-height: 1.6;
+				color: #3c3c3c;
+			}
+			.cv-side ul,
+			.cv-main ul {
+				margin: 8px 0 0;
+				padding-left: 18px;
+			}
+			.cv-role {
+				margin: 0;
+				font-size: 16px;
+				font-weight: 700;
+				font-family: "Montserrat", sans-serif;
+				text-transform: uppercase;
+				color: #212121;
+			}
+			.cv-company {
+				margin: 3px 0 4px;
+				font-size: 13px;
+				font-weight: 600;
+				color: #575757;
+			}
+			.cv-date {
+				margin: 0 0 8px;
+				font-size: 12px;
+				color: #7a7a7a;
+				font-weight: 700;
+				letter-spacing: 0.5px;
+			}
+			.cv-main hr {
+				border: 0;
+				border-top: 1px solid #e8e8e8;
+				margin: 18px 0;
+			}
+			.cv-side a {
+				color: #1f3f95;
+				text-decoration: none;
+				word-break: break-word;
+			}
+			@media (max-width: 980px) {
+				.cv-top,
+				.cv-body {
+					grid-template-columns: 1fr;
+				}
+				.cv-name {
+					border-left: 0;
+					border-top: 1px solid #e4e4e4;
+				}
+				.cv-side {
+					border-right: 0;
+					border-bottom: 1px solid #e4e4e4;
+				}
+			}
+			@media print {
+				body.cv-page {
+					background: #fff !important;
+				}
+				.cv-paper {
+					box-shadow: none !important;
+					max-width: 100% !important;
+				}
+				.cv-page .wil-content {
+					padding: 0 !important;
+				}
+			}
+		</style>
 	</head>
-	<body>
+	<body class="cv-page">
 		<div class="page-wrap" id="root">
 			<header class="header header--fixed">
 				<div class="header__inner">
@@ -37,149 +183,206 @@
 			</header>
 
 			<div class="wil-content">
-				<section class="awe-section">
-					<div class="container">
-						<div class="page-title pb-40">
-							<h2 class="page-title__title">Disha Tuniki - Learning and Development Resume</h2>
-							<p class="page-title__text">Learning and Development | Training Strategy | Talent Development | HR Operations</p>
-							<div class="page-title__divider"></div>
-							<p><strong>Phone:</strong> +91 9594439957 | <strong>Email:</strong> disha.ind786@gmail.com | <strong>Location:</strong> Mumbai, India | <strong>LinkedIn:</strong> linkedin.com/in/disha-tuniki-4569b8181</p>
+				<div class="cv-paper">
+					<div class="cv-top">
+						<div class="cv-tag">L&amp;D</div>
+						<div class="cv-name">
+							<h1>Disha Tuniki</h1>
+							<p>Learning and Development Specialist</p>
 						</div>
 					</div>
-				</section>
-
-				<section class="awe-section bg-gray">
-					<div class="container">
-						<div class="row">
-							<div class="col-md-12">
-								<div class="work-detail__entry">
-									<h3>Professional Summary</h3>
-									<p>Dynamic Learning and Development professional with experience across BFSI, e-commerce, technology, and real estate domains. Proven track record in designing and delivering scalable training programs, coaching teams, and aligning learning outcomes with business goals. Skilled in training needs analysis (TNA/LNA), instructional design (ADDIE), program evaluation (Kirkpatrick), LMS adoption, stakeholder management, and HR operations. Recognized for driving measurable performance improvements through structured learning interventions, data-driven reporting, and process optimization.</p>
-
-									<h3>Work Experience</h3>
-									<h4>Training and Development Executive - Metropolitan Premium Properties (Dubai)</h4>
-									<p><strong>Sep 2024 - Sep 2025</strong></p>
-									<ul>
-										<li>Created and delivered digital courses on product knowledge and systems for real estate agents through Talent LMS.</li>
-										<li>Generated learning analytics reports to track progress and measure training impact on sales performance.</li>
-										<li>Improved digital learning effectiveness by up to <strong>30%</strong> through targeted interventions and learner engagement strategies.</li>
-										<li>Submitted and tracked accreditation for 5 core programs and successfully secured accreditation for Fresh Agent.</li>
-										<li>Drove an <strong>18%</strong> improvement in team productivity through workshops on communication and time optimization.</li>
-										<li>Achieved <strong>69%</strong> completion rate for product knowledge training community performance.</li>
-									</ul>
-
-									<h4>Assistant Manager - Soft Skills Trainer - Motilal Oswal Financial Services</h4>
-									<p><strong>Dec 2022 - Aug 2024</strong></p>
-									<ul>
-										<li>Delivered training programs on communication, customer service, negotiation, and conflict resolution for sales and support teams.</li>
-										<li>Facilitated calendar-based learning sessions across levels and geographies, aligned to organizational goals.</li>
-										<li>Led internal LMS and process tool training to improve adoption and capability across teams.</li>
-										<li>Managed training data dashboards for leadership reporting and decision support.</li>
-										<li>Collaborated with stakeholders to identify capability gaps and execute targeted TNA/LNA-based interventions.</li>
-										<li>Supervised and mentored business trainers, including performance evaluations and onboarding support.</li>
-										<li>Partnered with HR on employee relations, conflict resolution, full-cycle recruitment, attendance tracking, competency mapping, and succession planning.</li>
-									</ul>
-
-									<h4>Senior Learning and Development Associate - Attra Infotech (Synechron)</h4>
-									<p><strong>Jan 2023 - Dec 2023</strong></p>
-									<ul>
-										<li>Streamlined content review and training delivery processes for professional development initiatives.</li>
-										<li>Built live dashboards for learning performance tracking and management-level visibility.</li>
-										<li>Applied ADDIE and Kirkpatrick frameworks to design, deliver, evaluate, and improve learning programs.</li>
-										<li>Enhanced knowledge sharing and decision-making through knowledge management practices.</li>
-										<li>Managed projects end-to-end with focus on timelines, quality, and business alignment.</li>
-									</ul>
-
-									<h4>Junior Professional Development Trainer and L&amp;D Coordinator - Attra Infotech (Synechron)</h4>
-									<p><strong>Nov 2020 - Dec 2022</strong></p>
-									<ul>
-										<li>Conducted training on campus-to-corporate readiness, communication, time management, teamwork, and emotional intelligence.</li>
-										<li>Used workshops, role-plays, and group activities to improve skill transfer and learner engagement.</li>
-										<li>Evaluated training effectiveness through feedback and assessments, then refined modules for better outcomes.</li>
-										<li>Coached and mentored learners for stronger soft skills and successful project deployment.</li>
-									</ul>
-
-									<h4>L&amp;D Coordinator - Flipkart India Pvt. Ltd.</h4>
-									<p><strong>Dec 2019 - Sep 2020</strong></p>
-									<ul>
-										<li>Managed end-to-end training requisitions, vendor sourcing, budget utilization, and session operations.</li>
-										<li>Designed process documentation to streamline requisition management and operational consistency.</li>
-										<li>Supported content creation and execution for soft skills and first-time manager development programs.</li>
-										<li>Delivered training sessions including procurement and operations-focused topics.</li>
-									</ul>
-
-									<h4>Process Trainer - Flipkart India Pvt. Ltd.</h4>
-									<p><strong>Aug 2019 - Nov 2019</strong></p>
-									<ul>
-										<li>Conducted induction, classroom, on-the-job, and cross-functional training programs.</li>
-										<li>Managed evaluation workflows and MIS reporting for training activities.</li>
-										<li>Handled training batches of up to <strong>150 trainees</strong> per session.</li>
-									</ul>
-
-									<h4>Relationship Manager - IDFC Mutual Funds</h4>
-									<p><strong>Aug 2018 - Aug 2019</strong></p>
-									<ul>
-										<li>Managed and supported a network of <strong>100 IFAs</strong> by resolving product and process queries.</li>
-										<li>Facilitated awareness sessions on product updates and investment changes.</li>
-										<li>Owned annual KRA target of <strong>INR 5 crore</strong> and drove activation of nearly <strong>30 IFAs</strong>.</li>
-										<li>Handled empanelment targets for the Western Mumbai region.</li>
-									</ul>
-
-									<h3>Education</h3>
-									<ul>
-										<li>Bachelor's in Accounting and Finance - India</li>
-										<li>Diploma in Sales and Marketing Management</li>
-									</ul>
-
-									<h3>Skills</h3>
-									<p><strong>Learning and Development:</strong> Training Needs Analysis (TNA/LNA), Instructional Design (ADDIE), Program Evaluation (Kirkpatrick), Facilitation, Mentoring, Coaching, Knowledge Management, Competency Mapping, Succession Planning</p>
-									<p><strong>Leadership and Stakeholder Skills:</strong> Stakeholder Management, Team Leadership, Cross-functional Collaboration, Vendor Management, Decision Making, Communication, Program Management</p>
-									<p><strong>Tools and Technology:</strong> Talent LMS, Disprz, Workday, Udemy, PeopleStrong, Moodle, Microsoft Office, Google Workspace, Google Sheets, Canva, AI productivity tools, Dashboard and reporting tools</p>
-
-									<h3>Certifications</h3>
-									<ul>
-										<li>DISC Personal Profile Analysis Certification</li>
-										<li>Train the Trainer Certification - Perfex</li>
-										<li>Dale Carnegie Training Excellence Certification</li>
-										<li>AMFI Certified Mutual Fund Advisor (VA)</li>
-										<li>AMFI Certified Derivatives VIII</li>
-									</ul>
-
-									<h3>Projects</h3>
-									<ul>
-										<li><strong>Attendance and Feedback Automation:</strong> Initiated automation for in-person session attendance and feedback capture, reducing manual effort and turnaround time.</li>
-										<li><strong>Soft Skills Feedback Analysis Dashboard:</strong> Built a structured feedback and content-enhancement process that improved delivery standards and enabled real-time implementation.</li>
-										<li><strong>Kaizen Initiative for L&amp;D Team:</strong> Created opportunities for internal team learning and certification pathways to strengthen capability and domain knowledge.</li>
-									</ul>
-
-									<h3>Achievements</h3>
-									<ul>
-										<li>Spot Award - LMS Contribution (2021)</li>
-										<li>Reward and Recognition Award (2020)</li>
-										<li>Best Business Enabler Award (2022)</li>
-										<li>CPD Accreditation for Training Program (2025)</li>
-									</ul>
-
-									<h3>Languages</h3>
-									<p>English, Hindi, Marathi, Telugu</p>
-								</div>
+					<div class="cv-body">
+						<aside class="cv-side">
+							<div class="cv-block">
+								<h3 class="cv-section-title">Contact</h3>
+								<p><strong>Phone:</strong> <a href="tel:+971501571781">+971 50 157 1781</a></p>
+								<p><strong>Email:</strong> <a href="mailto:disha.ind786@gmail.com">disha.ind786@gmail.com</a></p>
+								<p><strong>Location:</strong> Dubai, Alkhail Heights</p>
+								<p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/disha-tuniki-4569b8181" target="_blank" rel="noopener noreferrer">linkedin.com/in/disha-tuniki-4569b8181</a></p>
 							</div>
-						</div>
-					</div>
-				</section>
-			</div>
 
-			<div class="footer">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-6 col-lg-6 ">
-							<p class="footer__coppy"><i class="fa fa-phone"></i> +91 9594439957 | <i class="fa fa-envelope"></i> disha.ind786@gmail.com | Mumbai, India</p>
-						</div>
-						<div class="col-md-6 col-lg-6 ">
-							<div class="footer__social">
-								<a class="social-icon" href="https://linkedin.com/in/disha-tuniki-4569b8181" target="_blank" rel="noopener noreferrer"><i class="social-icon__icon fa fa-linkedin"></i></a>
+							<div class="cv-block">
+								<h3 class="cv-section-title">Education</h3>
+								<p><strong>Bachelor's in Accounting and Finance</strong><br>India</p>
+								<p><strong>Diploma in Sales and Marketing Management</strong></p>
 							</div>
-						</div>
+
+							<div class="cv-block">
+								<h3 class="cv-section-title">Skills</h3>
+								<ul>
+									<li>Training Needs Analysis (TNA/LNA)</li>
+									<li>Instructional Design (ADDIE)</li>
+									<li>Program Evaluation (Kirkpatrick)</li>
+									<li>Mentoring and Coaching</li>
+									<li>Stakeholder Management</li>
+									<li>Vendor Management</li>
+									<li>Program Management</li>
+									<li>Team Leadership</li>
+									<li>Knowledge Management</li>
+									<li>Competency Mapping</li>
+									<li>Succession Planning</li>
+								</ul>
+							</div>
+
+							<div class="cv-block">
+								<h3 class="cv-section-title">Tools and LMS</h3>
+								<ul>
+									<li>Talent LMS, Disprz, Workday</li>
+									<li>Udemy, PeopleStrong, Moodle</li>
+									<li>eCornell, LinkedIn Learning</li>
+									<li>Microsoft Office, Google Workspace</li>
+									<li>Google Sheets, Canva, AI tools</li>
+								</ul>
+							</div>
+
+							<div class="cv-block">
+								<h3 class="cv-section-title">Certifications</h3>
+								<ul>
+									<li>DISC Personal Profile Analysis Certification</li>
+									<li>Train the Trainer Certification - Perfex</li>
+									<li>Dale Carnegie Training Excellence Certification</li>
+									<li>AMFI Certified Mutual Fund Advisor (VA)</li>
+									<li>AMFI Certified Derivatives VIII</li>
+								</ul>
+							</div>
+
+							<div class="cv-block">
+								<h3 class="cv-section-title">Languages</h3>
+								<ul>
+									<li>English</li>
+									<li>Hindi</li>
+									<li>Marathi</li>
+									<li>Telugu</li>
+								</ul>
+							</div>
+
+							<div class="cv-block">
+								<h3 class="cv-section-title">Achievements</h3>
+								<ul>
+									<li>Spot Award - LMS Contribution (2021)</li>
+									<li>Reward and Recognition Award (2020)</li>
+									<li>Best Business Enabler Award (2022)</li>
+									<li>CPD Accreditation for Training Program (2025)</li>
+								</ul>
+							</div>
+
+							<div class="cv-block">
+								<h3 class="cv-section-title">Interests</h3>
+								<ul>
+									<li>Swimming</li>
+									<li>Travelling</li>
+									<li>Volunteering in water conservation programs</li>
+									<li>Following inspirational stories of Paigambar Muhammad</li>
+								</ul>
+							</div>
+						</aside>
+
+						<main class="cv-main">
+							<div class="cv-block">
+								<h3 class="cv-section-title">Professional Summary</h3>
+								<p>Dynamic Learning and Development professional with experience across BFSI, e-commerce, technology, and real estate domains. Proven track record in designing and delivering scalable training programs, coaching teams, and aligning learning outcomes with business goals. Skilled in training needs analysis, instructional design, program evaluation, LMS administration, stakeholder collaboration, and HR operations. Recognized for improving performance through structured learning interventions, compliance-focused execution, and data-driven reporting.</p>
+							</div>
+
+							<div class="cv-block">
+								<h3 class="cv-section-title">Professional Experience</h3>
+								<p class="cv-role">Learning and Development Specialist</p>
+								<p class="cv-company">Dubai Holding</p>
+								<p class="cv-date">Jan 2026 - Current</p>
+								<ul>
+									<li>Led end-to-end training lifecycle management (TNA to calendar planning, execution, and evaluation), improving training coverage and alignment with role-based competencies.</li>
+									<li>Streamlined compliance tracking across systems (e.g., Tahweel, Sphera), ensuring accurate reporting and error resolution with stakeholders.</li>
+									<li>Administered enterprise learning platforms including eCornell and LinkedIn Learning, managing access, learner issues, and engagement initiatives.</li>
+									<li>Drove awareness and adoption through targeted campaigns, manager briefings, and structured communication strategies.</li>
+									<li>Designed and delivered large-scale onboarding programs (e.g., Journey to Belong), enhancing employee experience and engagement.</li>
+									<li>Identified operational gaps and introduced structured SOPs, trackers, and governance frameworks to improve efficiency and accountability.</li>
+									<li>Improved budget tracking by implementing monthly utilization frameworks and PR/PO monitoring systems.</li>
+								</ul>
+								<hr>
+								<p class="cv-role">Training and Development Executive</p>
+								<p class="cv-company">Metropolitan Premium Properties (Dubai)</p>
+								<p class="cv-date">Sep 2024 - Sep 2025</p>
+								<ul>
+									<li>Created and delivered digital courses on product knowledge and systems for real estate agents through Talent LMS.</li>
+									<li>Generated learning analytics reports to track progress and measure training impact on sales performance.</li>
+									<li>Improved digital learning effectiveness by up to 30% through targeted interventions and learner engagement strategies.</li>
+									<li>Submitted and tracked accreditation for 5 core programs and successfully secured accreditation for Fresh Agent.</li>
+									<li>Drove an 18% improvement in team productivity through workshops on communication and time optimization.</li>
+									<li>Achieved 69% completion rate for product knowledge training community performance.</li>
+								</ul>
+								<hr>
+								<p class="cv-role">Assistant Manager - Soft Skills Trainer</p>
+								<p class="cv-company">Motilal Oswal Financial Services</p>
+								<p class="cv-date">Dec 2022 - Aug 2024</p>
+								<ul>
+									<li>Delivered training programs on communication, customer service, negotiation, and conflict resolution for sales and support teams.</li>
+									<li>Facilitated calendar-based learning sessions across levels and geographies, aligned to organizational goals.</li>
+									<li>Led internal LMS and process tool training to improve adoption and capability across teams.</li>
+									<li>Managed training data dashboards for leadership reporting and decision support.</li>
+									<li>Collaborated with stakeholders to identify capability gaps and execute targeted TNA/LNA-based interventions.</li>
+									<li>Supervised and mentored business trainers, including performance evaluations and onboarding support.</li>
+									<li>Partnered with HR on employee relations, conflict resolution, full-cycle recruitment, attendance tracking, competency mapping, and succession planning.</li>
+								</ul>
+								<hr>
+								<p class="cv-role">Senior Learning and Development Associate</p>
+								<p class="cv-company">Attra Infotech (Synechron)</p>
+								<p class="cv-date">Jan 2023 - Dec 2023</p>
+								<ul>
+									<li>Streamlined content review and training delivery processes for professional development initiatives.</li>
+									<li>Built live dashboards for learning performance tracking and management-level visibility.</li>
+									<li>Applied ADDIE and Kirkpatrick frameworks to design, deliver, evaluate, and improve learning programs.</li>
+									<li>Enhanced knowledge sharing and decision-making through knowledge management practices.</li>
+									<li>Managed projects end-to-end with focus on timelines, quality, and business alignment.</li>
+								</ul>
+								<hr>
+								<p class="cv-role">Junior Professional Development Trainer and L&amp;D Coordinator</p>
+								<p class="cv-company">Attra Infotech (Synechron)</p>
+								<p class="cv-date">Nov 2020 - Dec 2022</p>
+								<ul>
+									<li>Conducted training on campus-to-corporate readiness, communication, time management, teamwork, and emotional intelligence.</li>
+									<li>Used workshops, role-plays, and group activities to improve skill transfer and learner engagement.</li>
+									<li>Evaluated training effectiveness through feedback and assessments, then refined modules for better outcomes.</li>
+									<li>Coached and mentored learners for stronger soft skills and successful project deployment.</li>
+								</ul>
+								<hr>
+								<p class="cv-role">L&amp;D Coordinator</p>
+								<p class="cv-company">Flipkart India Pvt. Ltd.</p>
+								<p class="cv-date">Dec 2019 - Sep 2020</p>
+								<ul>
+									<li>Managed end-to-end training requisitions, vendor sourcing, budget utilization, and session operations.</li>
+									<li>Designed process documentation to streamline requisition management and operational consistency.</li>
+									<li>Supported content creation and execution for soft skills and first-time manager development programs.</li>
+									<li>Delivered training sessions including procurement and operations-focused topics.</li>
+								</ul>
+								<hr>
+								<p class="cv-role">Process Trainer</p>
+								<p class="cv-company">Flipkart India Pvt. Ltd.</p>
+								<p class="cv-date">Aug 2019 - Nov 2019</p>
+								<ul>
+									<li>Conducted induction, classroom, on-the-job, and cross-functional training programs.</li>
+									<li>Managed evaluation workflows and MIS reporting for training activities.</li>
+									<li>Handled training batches of up to 150 trainees per session.</li>
+								</ul>
+								<hr>
+								<p class="cv-role">Relationship Manager</p>
+								<p class="cv-company">IDFC Mutual Funds</p>
+								<p class="cv-date">Aug 2018 - Aug 2019</p>
+								<ul>
+									<li>Managed and supported a network of 100 IFAs by resolving product and process queries.</li>
+									<li>Facilitated awareness sessions on product updates and investment changes.</li>
+									<li>Owned annual KRA target of INR 5 crore and drove activation of nearly 30 IFAs.</li>
+									<li>Handled empanelment targets for the Western Mumbai region.</li>
+								</ul>
+							</div>
+
+							<div class="cv-block">
+								<h3 class="cv-section-title">Projects and Initiatives</h3>
+								<ul>
+									<li><strong>Attendance and Feedback Automation:</strong> Initiated automation to capture attendance and in-person session feedback, reducing manual effort and process turnaround time.</li>
+									<li><strong>Soft Skills Feedback Analysis Dashboard:</strong> Built a structured feedback and content-enhancement process across levels, improving delivery quality and real-time implementation.</li>
+									<li><strong>Kaizen for L&amp;D Team:</strong> Created opportunities for internal team learning and certifications to strengthen individual development and knowledge enhancement.</li>
+								</ul>
+							</div>
+						</main>
 					</div>
 				</div>
 			</div>
